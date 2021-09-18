@@ -1,0 +1,19 @@
+table {
+  width: 80%;
+  margin-left: 10%;
+}
+
+th {
+  color: #ffffff;
+  background-color: #6250f5;
+  cursor: pointer;
+  &:not(:last-child) {
+    border-right: 1px solid #ffffff;
+  }
+  &:first-child {
+    border-top-left-radius: 8px;
+  }
+  &:last-child {
+    border-top-right-radius: 8px;
+  }
+}
