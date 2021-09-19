@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import tableDragger from 'table-dragger';
 
 @Component({
-  selector: 'dzr-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'dzr-table-dragger',
+  templateUrl: './table-dragger.component.html',
+  styleUrls: ['./table-dragger.component.scss'],
 })
-export class AppComponent {
-  title = 'downsizer-components';
+export class TableDraggerComponent implements OnInit {
   public rowData = [
     {
       Id: '1',

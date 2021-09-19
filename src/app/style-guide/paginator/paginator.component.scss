@@ -1,0 +1,17 @@
+// Custom paginator
+.page {
+  height: 30px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 5px;
+  border: 1px solid #6250f5;
+  border-radius: 3px;
+  cursor: pointer;
+  background: #ffffff;
+}
+
+.dzr-paginator {
+  display: flex;
+  justify-content: space-between;
+}

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 
 const MODULES = [
@@ -10,6 +11,7 @@ const MODULES = [
   MatIconModule,
   MatTableModule,
   MatDividerModule,
+  MatPaginatorModule,
 ];
 
 @NgModule({
