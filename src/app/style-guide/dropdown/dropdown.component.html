@@ -1,0 +1,8 @@
+<h1>Dropdown 1</h1>
+
+<div style="cursor: pointer; width: 216px;height: 60px;border: 1px solid #CCCCCC;box-sizing: border-box;border-radius: 8px;"
+    mat-button [matMenuTriggerFor]="aboveMenu" placeholder="Search..."></div>
+<mat-menu #aboveMenu="matMenu" yPosition="above">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+</mat-menu>

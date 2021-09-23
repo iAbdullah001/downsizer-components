@@ -8,14 +8,25 @@
         </select>
     </div>
     <div class="page-buttons">
-        <button class="page"> &#x3c; </button>
-        <span>...</span>
-        <span class="page" *ngFor="let page of [1]">{{page}}</span>
-        <span>...</span>
-        <button class="page"> &#x3e; </button>
-    </div>
-</div>
+        <span class="arrow"> &#x3c; </span>
 
-<div class="values">
-    {{display() | json}}
+        <span class="page" *ngIf="pagesArray.firstPage ===  1"
+            [ngClass]="{'page-active': pagesArray.selectedPage === 1}" (click)="pageClicked(1)">1</span>
+
+        <span class="page" [ngClass]="{'page-active': pagesArray.selectedPage === 2}"
+            *ngIf="!!pagesArray.afterFirstPage" (click)="pageClicked(2)">{{pagesArray.afterFirstPage}}</span>
+
+        <span [ngClass]="{'page-active': pagesArray.selectedPage === page}" class="page"
+            *ngFor="let page of pagesArray.centerPages" (click)="pageClicked(page)">{{page}}</span>
+
+        <span class="page"
+            [ngClass]="{'page-active': !!pagesArray.beforeLastPage && pagesArray.selectedPage === numberOfPages - 1}"
+            *ngIf="!!pagesArray.beforeLastPage">{{pagesArray.beforeLastPage}}</span>
+
+        <span class="page"
+            [ngClass]="{'page-active': !!pagesArray.lastPage && pagesArray.selectedPage === numberOfPages}"
+            *ngIf="!!pagesArray.lastPage">{{pagesArray.lastPage}}</span>
+
+        <span class="arrow"> &#x3e; </span>
+    </div>
 </div>

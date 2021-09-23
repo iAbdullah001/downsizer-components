@@ -1,0 +1,9 @@
+Hello
+<button *ngFor="let page of pages" [ngClass]="{'selected-page-active': selectedPage === page}"
+    (click)="pageClicked(page)">
+    {{page === -1 || page === -2 ? '...' : page}}
+</button>
+
+<div class="prop">
+    <p>{{showProp.numberOfPages}}</p>
+</div>

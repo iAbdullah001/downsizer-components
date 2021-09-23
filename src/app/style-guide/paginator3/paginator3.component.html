@@ -1,0 +1,24 @@
+<div class="dzr-paginator-container">
+    <div class="items-per-page">
+        <span>Items per page: </span>
+        <select #perPage (change)="changedPerPage(perPage.value)">
+            <option *ngFor="let item of perPageOptions" [value]="item">{{item}}</option>
+        </select>
+    </div>
+
+    <div class="dzr-paginator">
+        <button class="prev-button" [disabled]="selectedPage === 1" (click)="prev()">
+            <i-feather name="chevron-left"></i-feather>
+        </button>
+        <ng-container *ngFor="let page of pages">
+            <button class="page-button" *ngIf="page !== -1 && page !== -2" (click)="click(page)"
+                [ngClass]="{'active': selectedPage === page}">
+                {{page}}
+            </button>
+            <i-feather class="ellipsis-icon" *ngIf="page === -1 || page === -2" name="more-horizontal"></i-feather>
+        </ng-container>
+        <button class="next-button" [disabled]="selectedPage === numberOfPages" (click)="next()">
+            <i-feather name="chevron-right"></i-feather>
+        </button>
+    </div>
+</div>

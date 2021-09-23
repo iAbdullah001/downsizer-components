@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 interface PagesArray {
-  startEllipsis: boolean;
-  showingPages: number[];
-  endEllipsis: boolean;
+  firstPage: number;
+  afterFirstPage: number | '...';
+  centerPages: number[];
+  selectedPage: number;
+  beforeLastPage: number | '...';
   lastPage: number;
 }
 
@@ -16,12 +18,21 @@ export class PaginatorComponent implements OnInit {
   private _length = 0;
   private _pageSize = 0;
   private _numberOfPages = 0;
-  private _pagesArray: PagesArray = {
-    startEllipsis: false,
-    showingPages: [],
-    endEllipsis: false,
+  private _allPages: number[] = [];
+  private _maxShowCount = 7;
+
+  pagesArray: PagesArray = {
+    firstPage: 0,
+    afterFirstPage: 0,
+    centerPages: [],
+    selectedPage: 0,
+    beforeLastPage: 0,
     lastPage: 0,
   };
+
+  get numberOfPages() {
+    return this._numberOfPages;
+  }
 
   @Input() set length(length: number) {
     this._length = length;
@@ -35,18 +46,52 @@ export class PaginatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const allPages = Array.from(
+    this._allPages = Array.from(
       { length: this._numberOfPages },
       (_, i) => i + 1
     );
+
+    if (this._numberOfPages < 1) {
+      return;
+    }
+    this.setOnePage();
+    if (this._numberOfPages <= 7) {
+      this.setFirstSevenPages();
+    } else {
+      this.setMoreThenSevenPages();
+    }
   }
 
-  display() {
-    return {
-      length: this._length,
-      pageSize: this._pageSize,
-      numberOfPages: this._numberOfPages,
-      pagesArray: this._pagesArray,
+  setOnePage() {
+    this.pagesArray = {
+      ...this.pagesArray,
+      firstPage: 1,
+      selectedPage: 1,
+    };
+  }
+
+  setFirstSevenPages() {
+    this.pagesArray = {
+      ...this.pagesArray,
+      centerPages: this._allPages.slice(1),
+    };
+  }
+
+  setMoreThenSevenPages() {
+    const midArray = this._allPages.slice(2, 5);
+    this.pagesArray = {
+      ...this.pagesArray,
+      afterFirstPage: 2,
+      centerPages: midArray,
+      beforeLastPage: '...',
+      lastPage: this._numberOfPages,
+    };
+  }
+
+  pageClicked(page: number) {
+    this.pagesArray = {
+      ...this.pagesArray,
+      selectedPage: page,
     };
   }
 }

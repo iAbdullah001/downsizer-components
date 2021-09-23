@@ -66,7 +66,6 @@ export class TableDraggerComponent implements OnInit {
 
   ngOnInit(): void {
     var id = document.getElementById('table');
-    console.log(id);
     var dragger = tableDragger(id, {
       mode: 'column',
       onlyBody: true,

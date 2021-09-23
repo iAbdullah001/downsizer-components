@@ -11,7 +11,22 @@
   background: #ffffff;
 }
 
+.page {
+  height: 30px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 5px;
+  cursor: pointer;
+  background: #ffffff;
+}
+
 .dzr-paginator {
   display: flex;
   justify-content: space-between;
+}
+
+.page-active {
+  color: #ffffff;
+  background-color: #6250f5;
 }
