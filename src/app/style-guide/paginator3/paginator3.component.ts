@@ -12,12 +12,20 @@ interface PageEvent {
 })
 export class Paginator3Component implements OnInit {
   @Input() set length(length: number) {
-    this._length = length;
+    if (!!length) {
+      this._length = length;
+    }
+    if (!!this._pageSize && !!this._length) {
+      this.setNumberOfPages();
+    }
   }
   @Input() set pageSize(pageSize: number) {
-    this._pageSize = pageSize;
-    const remainder = this._length % this._pageSize !== 0;
-    this.setNumberOfPages(remainder);
+    if (!!pageSize) {
+      this._pageSize = pageSize;
+    }
+    if (!!this._pageSize && !!this._length) {
+      this.setNumberOfPages();
+    }
   }
 
   @Output() pageEvent = new EventEmitter<PageEvent>();
@@ -27,12 +35,15 @@ export class Paginator3Component implements OnInit {
   private _numberOfPages = 0;
   private _pageSlots = 7;
   private _forwardClick = true;
-  private _pageEvent: PageEvent = { pageSize: 10, page: 1 };
-
   pages: number[] = [];
   selectedPage = 1;
 
-  perPageOptions = [10, 20, 30];
+  private _pageEvent: PageEvent = {
+    pageSize: this._pageSize,
+    page: this.selectedPage,
+  };
+
+  @Input() perPageOptions: number[] = [];
 
   get numberOfPages() {
     return this._numberOfPages;
@@ -122,10 +133,13 @@ export class Paginator3Component implements OnInit {
     return Array.from({ length: this._numberOfPages }, (_, i) => i + 1);
   }
 
-  setNumberOfPages(remainder: boolean) {
+  setNumberOfPages() {
+    this._pageEvent = { ...this._pageEvent, pageSize: this._pageSize };
+    const remainder = this._length % this._pageSize !== 0;
     const integer = parseInt(
       (this._length / this._pageSize).toString().split('.')[0]
     );
     this._numberOfPages = remainder ? integer + 1 : integer;
+    this.ngOnInit();
   }
 }

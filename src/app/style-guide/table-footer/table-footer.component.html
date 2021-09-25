@@ -6,6 +6,7 @@
         </div>
     </div>
     <div class="right-items">
-        <dzr-paginator3 [length]="100" [pageSize]="5"></dzr-paginator3>
+        <dzr-paginator3 [length]="length" [pageSize]="pageSize" [perPageOptions]="pageSizeOptions"
+            (pageEvent)="pageEvent.emit($event)"></dzr-paginator3>
     </div>
 </div>

@@ -4,6 +4,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
 const MODULES = [
@@ -14,6 +15,7 @@ const MODULES = [
   MatDividerModule,
   MatPaginatorModule,
   MatMenuModule,
+  MatSortModule,
 ];
 
 @NgModule({
