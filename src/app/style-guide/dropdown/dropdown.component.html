@@ -1,8 +1,18 @@
 <h1>Dropdown 1</h1>
 
-<div style="cursor: pointer; width: 216px;height: 60px;border: 1px solid #CCCCCC;box-sizing: border-box;border-radius: 8px;"
-    mat-button [matMenuTriggerFor]="aboveMenu" placeholder="Search..."></div>
-<mat-menu #aboveMenu="matMenu" yPosition="above">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-</mat-menu>
+<div class="dropdown-container">
+    <button class="dzr-dropdown" [ngClass]="{'menu-open': t.menuOpen}" [matMenuTriggerFor]="aboveMenu"
+        #t="matMenuTrigger">
+        <span>{{selectedItem.value}}</span>
+        <i-feather *ngIf="!t.menuOpen" name="chevron-down"></i-feather>
+        <i-feather *ngIf="t.menuOpen" name="chevron-up"></i-feather>
+    </button>
+    <mat-menu style="width: 460px;" #aboveMenu="matMenu" yPosition="below">
+        <button class="mat-menu-item-container" *ngFor="let item of dropDownItems" mat-menu-item
+            (click)="menuItemClicked(item)" [ngClass]="{'selected-menu': selectedItem.index === item.index}">
+            <span>{{item.value}}</span>
+            <i-feather *ngIf="selectedItem.index === item.index" name="check-circle" class="selected-circle-icon">
+            </i-feather>
+        </button>
+    </mat-menu>
+</div>
