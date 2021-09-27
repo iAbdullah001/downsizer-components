@@ -4,13 +4,14 @@
     <ng-container matColumnDef="id">
         <th mat-sort-header="id" cdkDrag mat-header-cell *matHeaderCellDef>
             <ng-container *cdkDragPreview>
-                <ng-container *ngTemplateOutlet="dragPreviewTemplate; context: {column: 'id'}"></ng-container>
+                <ng-container *ngTemplateOutlet="dragPreviewTemplate; context: {column: 'id', th: 'No.'}">
+                </ng-container>
             </ng-container>
             <i-feather class="top-line" name="minus"></i-feather>
             <span> No.</span>
             <ng-container *ngTemplateOutlet="sortIconTemplate; context: {column: 'id'}"></ng-container>
         </th>
-        <td #idCell mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
     <!-- Name Column -->
     <ng-container matColumnDef="email">
@@ -67,11 +68,12 @@
     </div>
 </ng-template>
 
-<ng-template #dragPreviewTemplate let-column="column">
-    <table>
+<!--This is the template for show while dragging the template-->
+<ng-template #dragPreviewTemplate let-column="column" let-th="th">
+    <table class="drag-table">
         <thead>
             <tr>
-                <td>{{column}}</td>
+                <th>{{th}}</th>
             </tr>
         </thead>
         <tbody>

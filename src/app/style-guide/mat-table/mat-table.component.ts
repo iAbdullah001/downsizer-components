@@ -52,8 +52,7 @@ export class MatTableComponent implements OnInit, AfterViewInit {
     private renderer: Renderer2
   ) {}
 
-  ngAfterViewInit(): void {
-  }
+  ngAfterViewInit(): void {}
 
   ngOnInit() {
     this.http
@@ -102,7 +101,7 @@ export class MatTableComponent implements OnInit, AfterViewInit {
     let dragSource: string[] = [];
     switch (column) {
       case 'id':
-        dragSource = this.dataSource.map(d => d.id.toString());
+        dragSource = this.dataSource.map((d) => d.id.toString());
         break;
       default:
         break;
