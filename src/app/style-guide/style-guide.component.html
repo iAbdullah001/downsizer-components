@@ -1,10 +1,17 @@
 <div class="navigate">
-    <button mat-raised-button color="primary" [matMenuTriggerFor]="aboveMenu">Controls</button>
-    <mat-menu #aboveMenu="matMenu" yPosition="below">
+    <button class="main-button" mat-raised-button color="primary" [matMenuTriggerFor]="controlMenu">Controls</button>
+    <mat-menu #controlMenu="matMenu" yPosition="below">
         <button mat-menu-item (click)="show('dropdown')">Dropdown</button>
+    </mat-menu>
+
+    <button class="main-button" mat-raised-button color="primary"
+        [matMenuTriggerFor]="componentMenu">Components</button>
+    <mat-menu #componentMenu="matMenu" yPosition="below">
+        <button mat-menu-item (click)="show('table')">Table</button>
     </mat-menu>
 </div>
 
 <div class="content">
     <dzr-dropdown *ngIf="showItem === 'dropdown'" [dropDownItems]="dropdown" (change)="log($event)"></dzr-dropdown>
+    <dzr-mat-table *ngIf="showItem === 'table'"></dzr-mat-table>
 </div>
