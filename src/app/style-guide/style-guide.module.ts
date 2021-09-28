@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SimplebarAngularModule } from 'simplebar-angular';
 import { IconsModule } from '../icons/icons.module';
 import { MaterialModule } from '../material/material.module';
 import { ButtonComponent } from './button/button.component';
@@ -47,6 +48,9 @@ import { TableComponent } from './table/table.component';
 
     // Feather Icons
     IconsModule,
+
+    // Other
+    SimplebarAngularModule,
   ],
 })
 export class StyleGuideModule {}

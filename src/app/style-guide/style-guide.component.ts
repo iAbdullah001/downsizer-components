@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./style-guide.component.scss'],
 })
 export class StyleGuideComponent implements OnInit {
+  showItem = '';
+
   dropdown = [
     { index: '0', value: 'All' },
     { index: '1', value: 'Listed' },
@@ -22,5 +24,9 @@ export class StyleGuideComponent implements OnInit {
 
   log(event: any) {
     console.log(event);
+  }
+
+  show(item: string) {
+    this.showItem = item;
   }
 }

@@ -1,3 +1,10 @@
+<div class="navigate">
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="aboveMenu">Controls</button>
+    <mat-menu #aboveMenu="matMenu" yPosition="below">
+        <button mat-menu-item (click)="show('dropdown')">Dropdown</button>
+    </mat-menu>
+</div>
+
 <div class="content">
-    <dzr-dropdown [dropDownItems]="dropdown" (change)="log($event)"></dzr-dropdown>
+    <dzr-dropdown *ngIf="showItem === 'dropdown'" [dropDownItems]="dropdown" (change)="log($event)"></dzr-dropdown>
 </div>
