@@ -13,11 +13,14 @@ interface DzrDropdownItem {
 export class DropdownComponent implements OnInit {
   selectedItem: DzrDropdownItem = { index: '0', value: '' };
   @Input() dropDownItems: DzrDropdownItem[] = [];
+  @Input() placeHolder = '';
 
   @Output() change = new EventEmitter<DzrDropdownItem>();
 
   ngOnInit(): void {
-    this.selectedItem = this.dropDownItems[0];
+    if (!this.placeHolder) {
+      this.selectedItem = this.dropDownItems[0];
+    }
   }
 
   menuItemClicked(item: DzrDropdownItem) {

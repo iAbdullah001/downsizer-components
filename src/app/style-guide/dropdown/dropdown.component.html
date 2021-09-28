@@ -3,11 +3,11 @@
 <div class="dropdown-container">
     <button class="dzr-dropdown" [ngClass]="{'menu-open': t.menuOpen}" [matMenuTriggerFor]="aboveMenu"
         #t="matMenuTrigger">
-        <span>{{selectedItem.value}}</span>
+        <span>{{!!selectedItem.value ? selectedItem.value : placeHolder}}</span>
         <i-feather *ngIf="!t.menuOpen" name="chevron-down"></i-feather>
         <i-feather *ngIf="t.menuOpen" name="chevron-up"></i-feather>
     </button>
-    <mat-menu style="width: 460px;" #aboveMenu="matMenu" yPosition="below">
+    <mat-menu #aboveMenu="matMenu" yPosition="below">
         <button class="mat-menu-item-container" *ngFor="let item of dropDownItems" mat-menu-item
             (click)="menuItemClicked(item)" [ngClass]="{'selected-menu': selectedItem.index === item.index}">
             <span>{{item.value}}</span>
