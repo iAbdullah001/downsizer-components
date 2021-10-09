@@ -7,6 +7,10 @@ const routes: Routes = [
     path: '',
     component: StyleGuideComponent,
   },
+  {
+    path: 'guide',
+    component: StyleGuideComponent,
+  },
 ];
 
 @NgModule({

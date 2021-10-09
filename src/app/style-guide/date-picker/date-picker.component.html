@@ -1,0 +1,21 @@
+<div class="date-picker-input">
+    <input type="text" [matMenuTriggerFor]="menu" #menuTrigger />
+    <i-feather name="calendar" [matMenuTriggerFor]="menu" #menuTrigger></i-feather>
+</div>
+
+<mat-menu #menu="matMenu" xPosition="before">
+    <div class="container" (click)="$event.stopPropagation(); $event.preventDefault();">
+        <select>
+            <option *ngFor="let mnth of months" [value]="mnth">{{mnth}}</option>
+        </select>
+        <select>
+            <option *ngFor="let mnth of months" [value]="mnth">{{mnth}}</option>
+        </select>
+    </div>
+</mat-menu>
+
+<div>{{day}}</div>
+<div>{{month}}</div>
+<div>{{year}}</div>
+
+<input type="date" name="" id="" class="unstyled">

@@ -6,6 +6,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const MODULES = [
   // Material Modules
@@ -16,6 +17,7 @@ const MODULES = [
   MatPaginatorModule,
   MatMenuModule,
   MatSortModule,
+  MatTooltipModule,
 ];
 
 @NgModule({

@@ -1,0 +1,11 @@
+.date-picker-input i-feather {
+  position: absolute;
+  padding-right: 10px;
+  min-width: 24px;
+}
+
+.unstyled::-webkit-inner-spin-button,
+.unstyled::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}

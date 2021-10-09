@@ -1,0 +1,101 @@
+.application-details-card {
+  position: sticky;
+  top: 40px;
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(98, 80, 245, 0.14);
+  border-radius: 8px;
+  padding: 30px;
+
+  .app-card-title {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #5a5a5a;
+  }
+
+  .applicant-name {
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    color: #212121;
+  }
+
+  .applicant-address {
+    letter-spacing: -0.01em;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 150%;
+    color: #5a5a5a;
+  }
+
+  .property-value-card {
+    background: #f4f3f9;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 10px 0 10px 0;
+    .value-title {
+      line-height: 150%;
+      font-weight: 300;
+      font-size: 18px;
+      color: #212121;
+    }
+    .value-text {
+      line-height: 140%;
+      margin-bottom: 0;
+      font-size: 22px;
+      color: #6250f5;
+    }
+  }
+
+  .action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button {
+      min-width: 70%;
+      align-items: center;
+      background: #6250f5;
+      box-shadow: 0px 10px 20px rgba(98, 80, 245, 0.14);
+      border-radius: 8px;
+      border: none;
+      font-size: 18px;
+      line-height: 150%;
+      color: #ffffff;
+      padding: 18px;
+
+      i-feather {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .property-value-card-high {
+    background: #007e41;
+    .value-title,
+    .value-text {
+      color: #ffffff;
+    }
+  }
+  .property-value-card-medium {
+    background: #ffd600;
+    .value-text {
+      color: #212121;
+    }
+  }
+  .property-value-card-low {
+    background: #f63e3e;
+    .value-title,
+    .value-text {
+      color: #ffffff;
+    }
+  }
+
+  .eligibility-info-text {
+    font-weight: 300;
+    font-size: 18px;
+    margin: 30px 0 30px 0;
+    line-height: 150%;
+  }
+}

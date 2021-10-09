@@ -18,6 +18,9 @@ import { StyleGuideComponent } from './style-guide.component';
 import { TableDraggerComponent } from './table-dragger/table-dragger.component';
 import { TableFooterComponent } from './table-footer/table-footer.component';
 import { TableComponent } from './table/table.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
+import { PasswordTootipComponent } from './password-tootip/password-tootip.component';
+import { ApplicantDetailCardComponent } from './applicant-detail-card/applicant-detail-card.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { TableComponent } from './table/table.component';
     Paginator3Component,
     TableFooterComponent,
     MatTableComponent,
+    DatePickerComponent,
+    PasswordTootipComponent,
+    ApplicantDetailCardComponent,
   ],
   imports: [
     // Common

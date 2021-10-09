@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { FeatherModule } from 'angular-feather';
 import {
+  AlertCircle,
+  ArrowRight,
+  Calendar,
   CheckCircle,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
   ChevronUp,
   Download,
+  Mail,
   Minus,
   MoreHorizontal,
   Triangle,
@@ -14,6 +18,10 @@ import {
 import { SortAsc, SortDesc } from './custom-icons';
 
 const icons = {
+  ArrowRight,
+  Mail,
+  AlertCircle,
+  Calendar,
   CheckCircle,
   ChevronUp,
   ChevronDown,

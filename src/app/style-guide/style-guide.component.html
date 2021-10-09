@@ -2,6 +2,7 @@
     <button class="main-button" mat-raised-button color="primary" [matMenuTriggerFor]="controlMenu">Controls</button>
     <mat-menu #controlMenu="matMenu" yPosition="below">
         <button mat-menu-item (click)="show('dropdown')">Dropdown</button>
+        <button mat-menu-item (click)="show('tooltip')">Tooltip</button>
     </mat-menu>
 
     <button class="main-button" mat-raised-button color="primary"
@@ -14,4 +15,6 @@
 <div class="content">
     <dzr-dropdown *ngIf="showItem === 'dropdown'" [dropDownItems]="dropdown" (change)="log($event)"></dzr-dropdown>
     <dzr-mat-table *ngIf="showItem === 'table'"></dzr-mat-table>
+    <dzr-password-tootip *ngIf="showItem === 'tooltip'"></dzr-password-tootip>
+    <dzr-applicant-detail-card></dzr-applicant-detail-card>
 </div>

@@ -1,0 +1,44 @@
+<div class="application-details-card">
+    <div class="app-card-title">Applicant details</div>
+    <h2 class="applicant-name">Mr Mark Macduffie</h2>
+    <div class="applicant-address">Canberra, ACT</div>
+    <div class="property-value-card">
+        <div class="value-title">Downsizer property value</div>
+        <h4 class="value-text">
+            <b>$1,334,500</b>
+        </h4>
+    </div>
+    <div class="property-value-card property-value-card-high">
+        <div class="value-title">Downsizer property value</div>
+        <h4 class="value-text">
+            <b>$1,334,500</b>
+        </h4>
+    </div>
+    <div class="eligibility-info-text">
+        <ng-container [ngTemplateOutlet]="mediumConfidenceTextTemplate"></ng-container>
+    </div>
+
+    <div class="action-button">
+        <button>
+            <span>Continue with application</span>
+            <i-feather name="mail"></i-feather>
+            <i-feather name="arrow-right"></i-feather>
+        </button>
+    </div>
+</div>
+
+<ng-template #highConfidenceTextTemplate>
+    <p>Great news! This means that you’re eligible to apply to purchase this property through Downsizer.com.</p>
+</ng-template>
+
+<ng-template #mediumConfidenceTextTemplate>
+    <p>The value of your asset is currently of low confidence or is unknown. </p>
+    <p> If you’d like to know how to submit an independent valuation, we can email you all of the information you need.
+    </p>
+</ng-template>
+
+<ng-template #lowConfidenceTextTemplate>
+    <p>The value of your asset doesn’t yet meet the requirements for eligiblity. </p>
+    <p> If you’d like to know how to submit an independent valuation, we can email you all of the information you
+        need.</p>
+</ng-template>
