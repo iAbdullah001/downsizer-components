@@ -21,6 +21,7 @@ import { TableComponent } from './table/table.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { PasswordTootipComponent } from './password-tootip/password-tootip.component';
 import { ApplicantDetailCardComponent } from './applicant-detail-card/applicant-detail-card.component';
+import { Dropdown2Component } from './dropdown2/dropdown2.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ApplicantDetailCardComponent } from './applicant-detail-card/applicant-
     DatePickerComponent,
     PasswordTootipComponent,
     ApplicantDetailCardComponent,
+    Dropdown2Component,
   ],
   imports: [
     // Common

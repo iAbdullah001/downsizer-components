@@ -16,5 +16,7 @@
     <dzr-dropdown *ngIf="showItem === 'dropdown'" [dropDownItems]="dropdown" (change)="log($event)"></dzr-dropdown>
     <dzr-mat-table *ngIf="showItem === 'table'"></dzr-mat-table>
     <dzr-password-tootip *ngIf="showItem === 'tooltip'"></dzr-password-tootip>
-    <dzr-applicant-detail-card></dzr-applicant-detail-card>
+    <dzr-dropdown2 [itemsArray]="itemsArray" textField="value" defaultPlaceHolder="Select a value"></dzr-dropdown2>
+
+    <h2>Hello another</h2>
 </div>
