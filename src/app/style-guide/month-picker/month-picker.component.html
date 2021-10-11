@@ -1,0 +1,23 @@
+<input type="text" [matMenuTriggerFor]="menu" [value]="dateText" readonly>
+<mat-menu #menu="matMenu">
+    <div class="container">
+        <div class="year-dropdown" (click)="$event.stopPropagation(); $event.preventDefault();">
+            <mat-select [value]="selectedYear" (selectionChange)="selectedYear = $event.value; setDateText()"
+                panelClass="custom-mat-select-panel">
+                <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+            </mat-select>
+        </div>
+        <div class="month-selection">
+            <table>
+                <tbody>
+                    <ng-container *ngFor="let month of months">
+                        <tr *ngIf="month.index % 4 === 0">
+                        </tr>
+                        <td [ngClass]="{'active': selectedMonth === month.index}"
+                            (click)="selectedMonth = month.index; setDateText()">{{month.shortName}}</td>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</mat-menu>

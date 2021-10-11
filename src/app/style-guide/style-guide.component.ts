@@ -1,12 +1,17 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'dzr-style-guide',
   templateUrl: './style-guide.component.html',
   styleUrls: ['./style-guide.component.scss'],
+  providers: [DatePipe],
 })
 export class StyleGuideComponent implements OnInit {
   showItem = '';
+
+  date: any;
+  currentMonth: any;
 
   dropdown = [
     { index: '0', value: 'All' },
@@ -57,7 +62,7 @@ export class StyleGuideComponent implements OnInit {
     },
   ] as any[];
 
-  constructor() {}
+  constructor(private datePipe: DatePipe) {}
 
   ngOnInit(): void {}
 
@@ -67,5 +72,16 @@ export class StyleGuideComponent implements OnInit {
 
   show(item: string) {
     this.showItem = item;
+  }
+
+  openDatePicker(dp: any) {
+    dp.open();
+  }
+
+  closeDatePicker(eventData: Date, dp?: any) {
+    this.date = this.datePipe.transform(eventData, 'MMMM, yyyy');
+    console.log(this.date);
+    // get month and year from eventData and close datepicker, thus not allowing user to select date
+    dp.close();
   }
 }
