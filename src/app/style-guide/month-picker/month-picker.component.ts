@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'dzr-month-picker',
   templateUrl: './month-picker.component.html',
   styleUrls: ['./month-picker.component.scss'],
+  providers: [DatePipe],
 })
 export class MonthPickerComponent implements OnInit {
   today = new Date();
@@ -17,6 +19,11 @@ export class MonthPickerComponent implements OnInit {
   selectedMonth = this.thisMonth;
 
   dateText = '';
+
+  @Output() inputText = new EventEmitter<string>();
+  @Output() monthYear = new EventEmitter<string | null>();
+
+  value: string | null = '';
 
   months = [
     {
@@ -81,7 +88,7 @@ export class MonthPickerComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private datePipe: DatePipe) {}
 
   ngOnInit(): void {}
 
@@ -89,5 +96,8 @@ export class MonthPickerComponent implements OnInit {
     this.dateText = `${this.months[this.selectedMonth].longName}, ${
       this.selectedYear
     }`;
+    this.value = this.datePipe.transform(this.dateText, 'yyyy-MM');
+    this.inputText.emit(this.dateText);
+    this.monthYear.emit(this.value);
   }
 }

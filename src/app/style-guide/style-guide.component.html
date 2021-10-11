@@ -16,9 +16,14 @@
     <dzr-dropdown *ngIf="showItem === 'dropdown'" [dropDownItems]="dropdown" (change)="log($event)"></dzr-dropdown>
     <dzr-mat-table *ngIf="showItem === 'table'"></dzr-mat-table>
     <dzr-password-tootip *ngIf="showItem === 'tooltip'"></dzr-password-tootip>
-    <dzr-month-picker></dzr-month-picker>
+
 </div>
 
+
+<input type="text" [matMenuTriggerFor]="menu" readonly placeholder="MMMM, yyyy" [value]="dp.dateText" />
+<mat-menu #menu="matMenu">
+    <dzr-month-picker #dp (monthYear)="log($event)" (inputText)="log($event)"></dzr-month-picker>
+</mat-menu>
 
 <!-- <mat-form-field>
     <input [value]="date" [matDatepicker]="dp2" placeholder="Select a Date" (click)="openDatePicker(dp2)">

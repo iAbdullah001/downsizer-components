@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'dzr-style-guide',
@@ -22,6 +23,8 @@ export class StyleGuideComponent implements OnInit {
     { index: '5', value: 'Exchanged' },
     { index: '6', value: 'Warrenty' },
   ];
+
+  control = new FormControl('');
 
   itemsArray = [
     {

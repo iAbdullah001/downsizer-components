@@ -2,6 +2,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { IconsModule } from '../icons/icons.module';
 import { MaterialModule } from '../material/material.module';
@@ -12,6 +13,7 @@ import { PaginationDirective } from './directives/pagination.directive';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { Dropdown2Component } from './dropdown2/dropdown2.component';
 import { MatTableComponent } from './mat-table/mat-table.component';
+import { MonthPickerComponent } from './month-picker/month-picker.component';
 import { NgxPaginatorComponent } from './ngx-paginator/ngx-paginator.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { Paginator1Component } from './paginator1/paginator1.component';
@@ -22,7 +24,6 @@ import { StyleGuideComponent } from './style-guide.component';
 import { TableDraggerComponent } from './table-dragger/table-dragger.component';
 import { TableFooterComponent } from './table-footer/table-footer.component';
 import { TableComponent } from './table/table.component';
-import { MonthPickerComponent } from './month-picker/month-picker.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MonthPickerComponent } from './month-picker/month-picker.component';
     DragDropModule,
     NgxPaginationModule,
     HttpClientModule,
+    ReactiveFormsModule,
 
     // Material
     MaterialModule,

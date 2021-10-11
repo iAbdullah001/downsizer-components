@@ -1,8 +1,37 @@
 .month-selection {
   td {
     padding: 5px;
+    cursor: pointer;
+    text-align: center;
   }
   .active {
+    border-radius: 8px;
     background: #6250f5;
   }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  .year-dropdown {
+    width: 40%;
+  }
+
+  .prev,
+  .next {
+    cursor: pointer;
+  }
+}
+
+::ng-deep .mat-menu-panel {
+  border: 1px solid #5a5a5a;
+  background: #fafafa;
+}
+
+.container {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
