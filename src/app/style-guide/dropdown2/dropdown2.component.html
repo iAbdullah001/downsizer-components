@@ -1,5 +1,10 @@
 <div class="container">
-    <div class="select-box">
+    <div class="select-box" #dropdown2SelectBox>
+
+        <div #selected (click)="expandCollapse()" class="selected" [ngClass]="{'active' : show}">
+            <span>{{!!defaultPlaceHolder ? defaultPlaceHolder : selectedItem[textField]}}</span>
+            <i-feather [ngClass]="{'active' : show}" name="chevron-down"></i-feather>
+        </div>
         <div #optionsContainer class="options-container" [ngClass]="{'active': show}">
             <div *ngFor="let item of itemsArray" #option class="option" [ngClass]="{'active' : selectedItem === item}"
                 (click)="itemClicked(item)">
@@ -11,11 +16,6 @@
                     <i-feather name="check-circle"></i-feather>
                 </div>
             </div>
-        </div>
-
-        <div #selected (click)="expandCollapse()" class="selected" [ngClass]="{'active' : show}">
-            <span>{{!!defaultPlaceHolder ? defaultPlaceHolder : selectedItem[textField]}}</span>
-            <i-feather [ngClass]="{'active' : show}" name="chevron-down"></i-feather>
         </div>
     </div>
 </div>

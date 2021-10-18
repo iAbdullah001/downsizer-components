@@ -2,6 +2,7 @@
     <button class="main-button" mat-raised-button color="primary" [matMenuTriggerFor]="controlMenu">Controls</button>
     <mat-menu #controlMenu="matMenu" yPosition="below">
         <button mat-menu-item (click)="show('dropdown')">Dropdown</button>
+        <button mat-menu-item (click)="show('dropdown2')">Dropdown2</button>
         <button mat-menu-item (click)="show('tooltip')">Tooltip</button>
     </mat-menu>
 
@@ -13,25 +14,48 @@
 </div>
 
 <div class="content">
-    <dzr-dropdown *ngIf="showItem === 'dropdown'" [dropDownItems]="dropdown" (change)="log($event)"></dzr-dropdown>
-    <dzr-mat-table *ngIf="showItem === 'table'"></dzr-mat-table>
-    <dzr-password-tootip *ngIf="showItem === 'tooltip'"></dzr-password-tootip>
-
+    <ng-container *ngIf="showItem === 'dropdown'" [ngTemplateOutlet]="dropdown"></ng-container>
+    <ng-template *ngIf="showItem === 'table'" [ngTemplateOutlet]="table"></ng-template>
+    <ng-template *ngIf="showItem === 'tooltip'" [ngTemplateOutlet]="tooltip"></ng-template>
+    <ng-template *ngIf="showItem === 'dropdown2'" [ngTemplateOutlet]="dropdown2"></ng-template>
 </div>
 
 
-<input type="text" [matMenuTriggerFor]="menu" readonly placeholder="MMMM, yyyy" [value]="dp.dateText" />
-<mat-menu #menu="matMenu">
-    <dzr-month-picker #dp (monthYear)="log($event)" (inputText)="log($event)"></dzr-month-picker>
-</mat-menu>
+<!-- Dropdown -->
+<ng-template #dropdown class="dropdown">
+    <h4>Dropdown</h4>
+    <dzr-dropdown [dropDownItems]="dropdownItems" (change)="log($event)"></dzr-dropdown>
+</ng-template>
 
-<!-- <mat-form-field>
-    <input [value]="date" [matDatepicker]="dp2" placeholder="Select a Date" (click)="openDatePicker(dp2)">
-    <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
-    <mat-datepicker #dp2 startView="multi-year" (monthSelected)="closeDatePicker($event, dp2)"></mat-datepicker>
-</mat-form-field> -->
+<!-- Dzr Material Table -->
+<ng-template #table class="table">
+    <h4>Table</h4>
+    <dzr-mat-table></dzr-mat-table>
+</ng-template>
 
-<!-- <input type="text" (click)="inD.click()" [value]="date" />
-<input #inD hidden [matDatepicker]="dp" (click)="dp.open()">
-<mat-datepicker #dp startView="multi-year" (yearSelected)="log($event)" (monthSelected)="closeDatePicker($event, dp)"
-    panelClass="example-month-picker"></mat-datepicker> -->
+<!-- Dzr Tooltip -->
+<ng-template #tooltip>
+    <h4>Tooltip</h4>
+    <dzr-password-tootip></dzr-password-tootip>
+</ng-template>
+
+<!-- Dropdown2 -->
+<ng-template #dropdown2>
+    <h4>Dropdown2</h4>
+    <dzr-dropdown2 [itemsArray]="itemsArray" textField="value" *ngIf="showItem === 'dropdown2'"></dzr-dropdown2>
+</ng-template>
+
+
+<ng-template></ng-template>
+<ng-template></ng-template>
+<ng-template></ng-template>
+<ng-template></ng-template>
+<ng-template></ng-template>
+<ng-template></ng-template>
+<ng-template></ng-template>
+<ng-template></ng-template>
+<ng-template></ng-template>
+<ng-template></ng-template>
+<ng-template></ng-template>
+<ng-template></ng-template>
+<ng-template></ng-template>

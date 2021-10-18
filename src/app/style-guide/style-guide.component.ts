@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { DROPDOWN_ITEMS } from './test-data/dropdown';
+import { ITEMS } from './test-data/dropdown2';
 
 @Component({
   selector: 'dzr-style-guide',
@@ -12,58 +13,12 @@ export class StyleGuideComponent implements OnInit {
   showItem = '';
 
   date: any;
-  currentMonth: any;
 
-  dropdown = [
-    { index: '0', value: 'All' },
-    { index: '1', value: 'Listed' },
-    { index: '2', value: 'Approved' },
-    { index: '3', value: 'Settled' },
-    { index: '4', value: 'Offer' },
-    { index: '5', value: 'Exchanged' },
-    { index: '6', value: 'Warrenty' },
-  ];
+  // Dropdown items
+  dropdownItems = DROPDOWN_ITEMS;
 
-  control = new FormControl('');
-
-  itemsArray = [
-    {
-      id: 1,
-      value: 'Automobiles',
-    },
-    {
-      id: 2,
-      value: 'Film & Animation',
-    },
-    {
-      id: 3,
-      value: 'Science & Technology',
-    },
-    {
-      id: 4,
-      value: 'Art',
-    },
-    {
-      id: 5,
-      value: 'Music',
-    },
-    {
-      id: 6,
-      value: 'Travel & Events',
-    },
-    {
-      id: 7,
-      value: 'Sports',
-    },
-    {
-      id: 8,
-      value: 'News & Politics',
-    },
-    {
-      id: 9,
-      value: 'Tutorials',
-    },
-  ] as any[];
+  // Dropdown2 items
+  itemsArray = ITEMS;
 
   constructor(private datePipe: DatePipe) {}
 
