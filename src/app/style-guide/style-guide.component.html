@@ -5,6 +5,7 @@
         <button mat-menu-item (click)="show('dropdown2')">Dropdown2</button>
         <button mat-menu-item (click)="show('tooltip')">Tooltip</button>
         <button mat-menu-item (click)="show('autocomplete')">Autocomplete</button>
+        <button mat-menu-item (click)="show('customformcontrol')">Custom Form Control</button>
     </mat-menu>
 
     <button class="main-button" mat-raised-button color="primary"
@@ -12,6 +13,8 @@
     <mat-menu #componentMenu="matMenu" yPosition="below">
         <button mat-menu-item (click)="show('table')">Table</button>
     </mat-menu>
+
+
 </div>
 
 <div class="content">
@@ -20,6 +23,7 @@
     <ng-template *ngIf="showItem === 'tooltip'" [ngTemplateOutlet]="tooltip"></ng-template>
     <ng-template *ngIf="showItem === 'dropdown2'" [ngTemplateOutlet]="dropdown2"></ng-template>
     <ng-template *ngIf="showItem === 'autocomplete'" [ngTemplateOutlet]="autocomplete"></ng-template>
+    <ng-template *ngIf="showItem === 'customformcontrol'" [ngTemplateOutlet]="customFormControl"></ng-template>
 </div>
 
 
@@ -49,11 +53,21 @@
 
 <!-- Autocomplete -->
 <ng-template #autocomplete>
+    <h4>Autocomplete</h4>
     <dzr-auto-complete></dzr-auto-complete>
 </ng-template>
 
+<!-- Custom form control -->
+<ng-template #customFormControl>
+    <form [formGroup]="customFormGroup" (submit)="onSubmitForm()">
+        <dzr-custom-form-control formControlName="customInput"></dzr-custom-form-control>
+        <pre> {{f.customInput.value}} </pre>
+        <pre> Is valid: {{f.customInput.errors?.minlength | json}} </pre>
+        <button type="submit">Submit</button>
+    </form>
+</ng-template>
 
-<ng-template></ng-template>
+
 <ng-template></ng-template>
 <ng-template></ng-template>
 <ng-template></ng-template>

@@ -24,6 +24,7 @@ import { StyleGuideComponent } from './style-guide.component';
 import { TableDraggerComponent } from './table-dragger/table-dragger.component';
 import { TableFooterComponent } from './table-footer/table-footer.component';
 import { TableComponent } from './table/table.component';
+import { CustomFormControlComponent } from './custom-form-control/custom-form-control.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { TableComponent } from './table/table.component';
     Dropdown2Component,
     MonthPickerComponent,
     AutoCompleteComponent,
+    CustomFormControlComponent,
   ],
   imports: [
     // Common

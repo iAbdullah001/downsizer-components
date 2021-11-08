@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DROPDOWN_ITEMS } from './test-data/dropdown';
 import { ITEMS } from './test-data/dropdown2';
 
@@ -20,7 +21,26 @@ export class StyleGuideComponent implements OnInit {
   // Dropdown2 items
   itemsArray = ITEMS;
 
-  constructor(private datePipe: DatePipe) {}
+  // Custom form control
+  customFormGroup: FormGroup;
+
+  constructor(private datePipe: DatePipe, private fb: FormBuilder) {
+    this.customFormGroup = this.fb.group({
+      customInput: ['', [Validators.required, Validators.minLength(10)]],
+    });
+  }
+
+  onSubmitForm() {
+    if (this.customFormGroup.invalid) {
+      alert('invalid');
+    } else {
+      alert('valid');
+    }
+  }
+
+  get f() {
+    return this.customFormGroup.controls;
+  }
 
   ngOnInit(): void {}
 
