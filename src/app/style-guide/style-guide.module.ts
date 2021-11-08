@@ -1,12 +1,12 @@
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { IconsModule } from '../icons/icons.module';
 import { MaterialModule } from '../material/material.module';
 import { ApplicantDetailCardComponent } from './applicant-detail-card/applicant-detail-card.component';
+import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { ButtonComponent } from './button/button.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { PaginationDirective } from './directives/pagination.directive';
@@ -44,6 +44,7 @@ import { TableComponent } from './table/table.component';
     ApplicantDetailCardComponent,
     Dropdown2Component,
     MonthPickerComponent,
+    AutoCompleteComponent,
   ],
   imports: [
     // Common
@@ -51,7 +52,6 @@ import { TableComponent } from './table/table.component';
     StyleGuideRoutingModule,
     DragDropModule,
     NgxPaginationModule,
-    HttpClientModule,
     ReactiveFormsModule,
 
     // Material
